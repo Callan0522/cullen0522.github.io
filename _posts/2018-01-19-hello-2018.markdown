@@ -1,0 +1,160 @@
+---
+layout:     post
+title:      "Hello 2018 Github page Jekyll Blog"
+subtitle:   "Hello 2018 利用 Github page + Jekyll 打造第一個 Dev Blog"
+date:       2018-01-19 09:00:00
+author:     "Cullen"
+header-img: "img/post_img/post_2018_1.png"
+catalog: true
+tags:
+    - GitHub Pages
+    - Jekyll
+    - Blog
+---
+
+## 前言
+
+[ 跳到正文，不看廢話 ](#build)👉
+
+2018年  
+
+大學讀夜校時就算是半個上班族了，工作是寫 Web 後端，就一直想有一個自己的 Blog，  
+寫寫 Web 文章分享。但上班看著 Web Code ，下班又要看 Web Code 實在沒動力，就一直拖到了現在。
+
+正式出了社會滿半年了，終於自己弄了一個 Blog ，主要動力是想記錄自學 iOS APP 開發的紀錄。  
+
+---
+
+## [GitHub Pages](https://pages.github.com/) + [Jekyll](http://jekyllrb.com/) 
+
+再爬文要建立 Blog 時，意外看到 **GitHub Pages + Jekyll** 正好適合有點 Web 底子的我，網路上討論度也很高，有幾點優點打動了我，最重要的是能夠自由修改 。
+
+#### 優點：
+* **Markdown** 支援，號稱雙手不用離開鍵盤就能寫完文章，美觀整潔的格式
+* 能夠學到非常熱門的 **Git** 基本使用技巧 
+* 利用鼎鼎大名 GitHub 服務，**不用另外付費租用主機 、無限流量**，GitHub 就是穩定  
+	* 能使用 **GitHub Page 免費域名**    
+	* 自定義域名也只要簡單的設定即可達成
+* 網站 **自定義** 程度相當高
+
+#### 缺點：
+* 屬於 **靜態網站** 特殊功能需依靠第三方 Plugin，例如評論功能需用 [Disqus](https://disqus.com/) 達成  
+* 需了解基礎的相關技術  
+	* **HTML/CSS/Javascript**  
+	* **Git & Jekyll**
+	* **Markdown**
+
+## Jekyll 安裝
+> 以下使用 Mac 環境  
+
+打開 **Terminal(終端機)** ，首先安裝 **Ruby** 使用 **[Homebrew](https://brew.sh/index_zh-tw.html)** 。
+```sh
+$ brew install ruby
+#檢查 Ruby 版本
+$ ruby -v
+```
+接著安裝 **Jekyll** & **Bunder**。
+```sh
+$ gem install jekyll bundler
+```
+
+## 命令創建網站
+> 就這麼簡單
+
+使用 `Jekyll New` 創建新網站  
+創建的路徑：`/Users/"User Name"/myblog/`
+```sh
+#"myblog" 可改為自訂的名稱
+$ jekyll new myblog
+```
+使用 `Jekyll Serve` 來本端預覽網站  
+```sh
+#切換至 myblog 目錄
+$ cd myblog
+#本端生成網站
+$ bundle exec jekyll serve
+```
+瀏覽器中 <http://localhost:4000> 就可以看到預設的 Jekyll 網站啦！
+
+## Jekyll 基本介紹
+
+#### 目錄結構
+```sh
+.
+├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── _sass
+|   ├── _base.scss
+|   └── _layout.scss
+├── _site
+├── .jekyll-metadata
+└── index.html
+```
+看得眼花撩亂，以下簡單介紹功用  
+* `_config.yml`
+	* 網站的設置文件，可以直接把命令存在這。
+* `_drafts`
+	* 放文章草稿，檔名不需日期格式。
+* `_includes`
+	* 放常用的代碼檔，例如： head & footer 檔案。
+* `_layouts`
+	* 放網站模板佈局。
+* `_posts`
+	* 放要發佈的文章，檔名要符合 `YEAR-MONTH-DAY-title.MARKUP` 格式。 
+* `_site`
+	* Jekyll 轉換生成的頁面都放在這。 
+* `index.html`
+	* 首頁檔案，可用 `.markdown` `.md` `.textile` 檔案類型
+
+#### 分頁
+
+Jekyll 沒有內建的分頁功能，必須靠 **[jekyll-paginate](https://jekyllrb.com/docs/pagination/)** 來達成。必須在 `.html` 檔案中使用，如：`index.html`
+
+## Github Page
+
+#### 創建網站
+當然首先是到 **[Github](https://github.com/)** 註冊一個帳號。  
+創建一個新的Repo [`Github-Username`.github.io]，`Github-Username` 是指個人的帳號名稱，這個 Repo 名稱就會是免費的網址。
+![Now-Repo](https://raw.githubusercontent.com/Cullen0522/cullen0522.github.io/master/img/post_img/Create_a_New_Repository.png)
+
+新增完後會到以下的頁面，複製你的 Repo Link。  
+![Repo-Link](https://raw.githubusercontent.com/Cullen0522/cullen0522.github.io/master/img/post_img/Create_a_New_Repo_link.png)
+
+下載 **[GitHub Desktop](https://desktop.github.com/)** 安裝後打開，**Clone a Repository** 將 Github 中的 Repo Clone 到電腦中。
+![GitHub-Desktop](https://raw.githubusercontent.com/Cullen0522/cullen0522.github.io/master/img/post_img/Clone_desktop.png)
+
+選擇 URL 貼上你的 Repo Link，選擇要放到目錄。
+![Clone_Url](https://raw.githubusercontent.com/Cullen0522/cullen0522.github.io/master/img/post_img/Clone_Url.png)
+
+接著只要把 Jekyll 所生成的檔案，全部放置上方選擇的目錄中，在 GitHub Desktop 中輸入 Comment 按下 **Commit to master**，最後 **Push** 就大功告成拉！
+![Clone_Push](https://raw.githubusercontent.com/Cullen0522/cullen0522.github.io/master/img/post_img/GitHub_Desktop_push.png)
+
+瀏覽器輸入 [`Github-Username`.github.io] 就可以看到網站囉！
+
+## Jekyll Theme 
+> 尋找自己喜歡的網站模板  
+* <http://jekyllthemes.org/>
+* <http://themes.jekyllrc.org/>
+
+下載主題後，先看看作者寫的說明是否有需要注意的地方，將檔案複製進自己的 Repo 目錄中做修改，在 Push 就可以囉！也別吝嗇幫作者點個 **Fork** 做個鼓勵！
+
+
+#### 參考網站：  
+
+* [Jekyll](http://jekyllcn.com/)
+* [Jekyll及GitHub教學1》快速20分鐘建立免費部落格 Hung-Chi's Blog](http://hungchicheng.me/2017/05/11/how-to-make-blog-on-github/)
+* [利用Jekyll與Github Page建立自己的Dev-Blog](http://seans.tw/2016/make-own-blog-with-jekyll-and-github-page/)
+* [48 个你需要知道的 Jekyll 使用技巧](https://crispgm.com/page/48-tips-for-jekyll-you-should-know.html)
+
+
